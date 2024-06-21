@@ -1,6 +1,6 @@
 // ==UserScript==
 // @name         哔哩哔哩视频列表增强
-// @version      240602
+// @version      240621
 // @description  修改视频合集长度_直播视频大小_评论区间隔
 // @author       未完待笑(UnfiniSmile)
 // @copyright    2024, UnfiniSmile (https://github.com/UnfiniSmile)
@@ -27,13 +27,15 @@
             //修改评论区间隔
             GM_addStyle('.opus-detail {width: 1080px;}');//新版UP空间评论动态24-5-3
             GM_addStyle('.right-sidebar-wrap {margin-left: 1080px;}');//24-6-1
-            GM_addStyle('.sub-reply-item[data-v-26797283] {line-height: 0px !important;}');//24-5-24
-            GM_addStyle('.sub-reply-item[data-v-26797283] {padding: 2px 0 0px 42px !important;}');//24-5-24
-            GM_addStyle('.reply-item .bottom-line[data-v-eb69efad] {margin-top: 0px !important;}');//24-5-24
-            GM_addStyle('.reply-item .root-reply-container[data-v-eb69efad] {padding: 0px 0 0 80px !important;}');//24-5-24
-            GM_addStyle('.reply-item .root-reply-container .content-warp .user-info[data-v-eb69efad] {margin-bottom: -10px !important;}');//24-6-1
-            GM_addStyle('.reply-item .root-reply-container .content-warp .root-reply[data-v-eb69efad] {line-height: 10px !important;}');//24-6-1
-            GM_addStyle('.reply-item .root-reply-container .content-warp .reply-decorate[data-v-eb69efad] {transform: translateY(-6px) !important;}');//24-5-24
+            GM_addStyle('.reply-box.fixed-box[data-v-13454586] {padding: 5px 0 !important;}');//24-6-12
+            GM_addStyle('.sub-reply-item .sub-reply-info[data-v-26797283] {margin-top: -4px !important;}');//24-6-12
+            GM_addStyle('.sub-reply-item[data-v-26797283] {line-height: 0px !important;padding: 2px 0 0px 42px !important;}');//24-6-21
+            GM_addStyle('.reply-item .bottom-line[data-v-b50d1e37] {margin-top: 0px !important;}');//24-6-21
+            GM_addStyle('.reply-item .root-reply-container[data-v-b50d1e37] {padding: 0px 0 0 80px !important;}');//24-6-21
+            GM_addStyle('.reply-item .root-reply-container .content-warp .user-info[data-v-b50d1e37] {margin-bottom: -10px !important;}');//24-6-21
+            GM_addStyle('.reply-item .root-reply-container .content-warp .root-reply[data-v-b50d1e37] {line-height: 10px !important;}');//24-6-21
+            GM_addStyle('.reply-item .root-reply-container .content-warp .root-reply .reply-info[data-v-b50d1e37] {margin-top: -4px !important;}');//24-6-21
+            GM_addStyle('.reply-item .root-reply-container .content-warp .reply-decorate[data-v-b50d1e37] {transform: translateY(-6px) !important;}');//24-6-21
             //GM_addStyle('');以下代码已注释推荐搭配bilibili_evolved//GM_addStyle('.live-room-app .app-content .app-body .player-and-aside-area .left-container { width: calc(100% - 302px - 64px); box-sizing: border-box; }');// 修改.left-container的宽度//GM_addStyle('.live-room-app .app-content .app-body .player-and-aside-area .aside-area { width: 360px; top: 0; right: 0; bottom: 0; border: 1px solid var(--Ga2); border-radius: 12px; }');//修改.aside-area的宽度
         }, 0); // 总延迟,数字是延迟以毫秒为单位，可以根据实际情况调整
     });
