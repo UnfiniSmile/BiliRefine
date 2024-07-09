@@ -17,9 +17,9 @@
             var videoSectionsContentList = document.querySelector('.base-video-sections-v1 .video-sections-content-list');
             setTimeout(function() {videoSectionsContentList.style.maxHeight = 'none';}, 0);//24-4-18修改视频列表高度延迟结构改善
             GM_addStyle('.base-video-sections-v1 .video-sections-content-list { height: 410px !important; }');//24-5-3不再使用延迟
-            //以下是针对bilibili直播界面的code修改max-width，禁用width，
+            //修改bilibili直播界面
             GM_addStyle('.live-room-app .app-content .app-body {width: auto !important;}');//24-7-9
-            GM_addStyle('.live-room-app .app-content .app-body .player-and-aside-area {margin-bottom: 64px;}');24-7-9
+            GM_addStyle('.live-room-app .app-content .app-body .player-and-aside-area {margin-bottom: 64px;}');//24-7-9
             //修改视频列表宽度，弹幕留言列表宽度，以及解除视频列表字符长度限制
             GM_addStyle('.base-video-sections-v1 .video-section-list .video-episode-card__info-title {width: auto !important;}');//24-4-11
             //GM_addStyle('.bpx-docker-minor {position: relative;width: 115%;}');//setTimeout(function() {GM_addStyle('.base-video-sections-v1[data-v-538c7b9a]{width: 115%;}')},550);//GM_addStyle('.video-sections-v1[data-v-4222afdb] {width: 115%;}');//24-5-28 beta disabled modify videos list width code
@@ -37,7 +37,7 @@
             GM_addStyle('.reply-item .root-reply-container .content-warp .root-reply[data-v-7041f671] {line-height: 10px !important;}');//24-6-21
             GM_addStyle('.reply-item .root-reply-container .content-warp .root-reply .reply-info[data-v-7041f671] {margin-top: -4px !important;}');//24-6-21
             GM_addStyle('.reply-item .root-reply-container .content-warp .reply-decorate[data-v-7041f671] {transform: translateY(-6px) !important;}');//24-6-21
-            //GM_addStyle('');以下代码已注释推荐搭配bilibili_evolved//GM_addStyle('.live-room-app .app-content .app-body .player-and-aside-area .left-container { width: calc(100% - 302px - 64px); box-sizing: border-box; }');// 修改.left-container的宽度//GM_addStyle('.live-room-app .app-content .app-body .player-and-aside-area .aside-area { width: 360px; top: 0; right: 0; bottom: 0; border: 1px solid var(--Ga2); border-radius: 12px; }');//修改.aside-area的宽度
+            //GM_addStyle('');以下代码已注释，推荐去使用bilibili_evolved实现功能//GM_addStyle('.live-room-app .app-content .app-body .player-and-aside-area .left-container { width: calc(100% - 302px - 64px); box-sizing: border-box; }');// 修改.left-container的宽度//GM_addStyle('.live-room-app .app-content .app-body .player-and-aside-area .aside-area { width: 360px; top: 0; right: 0; bottom: 0; border: 1px solid var(--Ga2); border-radius: 12px; }');//修改.aside-area的宽度
         }, 0); // 总延迟,数字是延迟以毫秒为单位，可以根据实际情况调整
     });
 })();
