@@ -1,6 +1,6 @@
 // ==UserScript==
 // @name         哔哩哔哩视频列表增强
-// @version      240711
+// @version      240711.1
 // @description  修改视频合集长度_直播视频大小_评论区间隔
 // @author       未完待笑(UnfiniSmile)
 // @copyright    2024, UnfiniSmile (https://github.com/UnfiniSmile)
@@ -56,7 +56,7 @@
                 }//修改评论者名字空白间隔24-7-11
                 let Footer = root3.querySelector("#footer > bili-comment-action-buttons-renderer");
                 if (Footer) {
-                    Footer.style.marginTop = '-6px';
+                    Footer.style.marginTop = '-4px';
                 }//修改评论者时间空白间隔24-7-11
                 let userAvatar = root3.querySelector("#user-avatar");
                 if (userAvatar) {
@@ -65,7 +65,7 @@
                 let ornament = root3.querySelector("#ornament");
                 if (ornament) {
                     ornament.style.top = '-10px';
-                }
+                }//修改表情牌子位置24-7-11
                 let repliesRenderer = root2.querySelector("#replies > bili-comment-replies-renderer");
                 if (repliesRenderer) {
                     let root4 = repliesRenderer.shadowRoot;
@@ -91,6 +91,9 @@
     function observeMutations() {
         const observer = new MutationObserver(mutations => {
             modifyElements();
+            setTimeout(function() {
+                modifyElements();
+            },3000);//添加延迟结构改善未修改的情况
         });
 
         observer.observe(document, { childList: true, subtree: true });
