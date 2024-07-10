@@ -10,7 +10,29 @@
 
 (function() {
     'use strict';
-    
+
+    function applyStyles() {
+        GM_addStyle('.base-video-sections-v1 .video-sections-content-list { height: 450px !important; }');//24-7-11解决点击下一个视频失效的问题
+        //修改bilibili直播界面
+        GM_addStyle('.live-room-app .app-content .app-body {width: auto !important;}');//24-7-9
+        GM_addStyle('.live-room-app .app-content .app-body .player-and-aside-area {margin-bottom: 90px;}');//24-7-9
+        //修改视频列表宽度，弹幕留言列表宽度，以及解除视频列表字符长度限制
+        GM_addStyle('.base-video-sections-v1 .video-section-list .video-episode-card__info-title {width: auto !important;}');//24-4-11
+        GM_addStyle('.video-sections-v1 .video-sections-content-list[data-v-4222afdb] {height: 354px;}');//24-4-17
+        GM_addStyle('.base-video-sections-v1 .video-sections-head_first-line .first-line-left .first-line-title[data-v-538c7b9a] {max-width: 210px;}');//列表标题宽度max24-6-1
+        //新版UP空间评论动态大小
+        GM_addStyle(`
+            .opus-detail {width: 1080px;}
+            .right-sidebar-wrap {margin-left: 1100px;}
+            .sub-reply-item .sub-reply-info[data-v-1f8a4018] {margin-top: -4px !important;}
+            .sub-reply-item[data-v-1f8a4018] {line-height: 0px !important;padding: 2px 0 0px 42px !important;}
+            .reply-item .bottom-line[data-v-7041f671] {margin-top: 0px !important;}
+            .reply-item .root-reply-container[data-v-7041f671] {padding: 0px 0 0 80px !important;}
+            .reply-item .root-reply-container .content-warp .user-info[data-v-7041f671] {margin-bottom: -10px !important;}
+            .reply-item .root-reply-container .content-warp .root-reply[data-v-7041f671] {line-height: 10px !important;}
+            .reply-item .root-reply-container .content-warp .root-reply .reply-info[data-v-7041f671] {margin-top: -4px !important;}
+            .reply-item .root-reply-container .content-warp .reply-decorate[data-v-7041f671] {transform: translateY(-6px) !important;}`);//24-7-11
+    }//GM_addStyle('');
     //针对7-10晚上b站更新写的代码，修改评论区间隔
     function modifyElements() {
         try {
@@ -79,21 +101,13 @@
         }
     }
     window.addEventListener('load', function() {
+        applyStyles();
         modifyElements();
         observeMutations();
 
         var videoSectionsContentList = document.querySelector('.base-video-sections-v1 .video-sections-content-list');
-        videoSectionsContentList.style.maxHeight = 'none';//24-4-18修改视频列表高度延迟结构改善
-        GM_addStyle('.base-video-sections-v1 .video-sections-content-list { height: 450px !important; }');//24-7-11解决点击下一个视频失效的问题
-        //修改bilibili直播界面
-        GM_addStyle('.live-room-app .app-content .app-body {width: auto !important;}');//24-7-9
-        GM_addStyle('.live-room-app .app-content .app-body .player-and-aside-area {margin-bottom: 90px;}');//24-7-9
-        //修改视频列表宽度，弹幕留言列表宽度，以及解除视频列表字符长度限制
-        GM_addStyle('.base-video-sections-v1 .video-section-list .video-episode-card__info-title {width: auto !important;}');//24-4-11
-        GM_addStyle('.video-sections-v1 .video-sections-content-list[data-v-4222afdb] {height: 354px;}');//24-4-17
-        GM_addStyle('.base-video-sections-v1 .video-sections-head_first-line .first-line-left .first-line-title[data-v-538c7b9a] {max-width: 210px;}');//列表标题宽度max24-6-1
-        //修改评论区间隔
-        GM_addStyle('.opus-detail {width: 1080px;}');//新版UP空间评论动态24-5-3
-        GM_addStyle('.right-sidebar-wrap {margin-left: 1080px;}');//24-6-1
+        if (videoSectionsContentList) {
+            videoSectionsContentList.style.maxHeight = 'none'
+        }//24-4-18修改视频列表高度延迟结构改善
     });
-})();//GM_addStyle('');
+})();
