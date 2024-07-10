@@ -62,6 +62,10 @@
                 if (userAvatar) {
                     userAvatar.style.top = '12px';
                 }//修改评论者头像位置24-7-11
+                let ornament = root3.querySelector("#ornament");
+                if (ornament) {
+                    ornament.style.top = '-10px';
+                }
                 let repliesRenderer = root2.querySelector("#replies > bili-comment-replies-renderer");
                 if (repliesRenderer) {
                     let root4 = repliesRenderer.shadowRoot;
