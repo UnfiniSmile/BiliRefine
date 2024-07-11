@@ -8,6 +8,7 @@
     <img src=".picture/videoListHightComparison.jpg">
     <img src=".picture/commentSectionSpacingComparison.jpg">
 </p>
+
 ---
 
 [![Star History Chart](https://api.star-history.com/svg?repos=UnfiniSmile/BiliRefine&type=Date)](https://star-history.com/#UnfiniSmile/BiliRefine&Date)
