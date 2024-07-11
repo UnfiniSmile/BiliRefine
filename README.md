@@ -4,7 +4,7 @@
 
 * [Tampermonkey project](https://greasyfork.org/zh-CN/scripts/480765-%E5%93%94%E5%93%A9%E5%93%94%E5%93%A9%E8%A7%86%E9%A2%91%E5%88%97%E8%A1%A8%E5%A2%9E%E5%BC%BA?locale_override=1)
 
-<p align="center">
+<p>
     <img src=".picture/videoListHightComparison.jpg">
     <img src=".picture/commentSectionSpacingComparison.jpg">
 </p>
