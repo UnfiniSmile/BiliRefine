@@ -1,6 +1,6 @@
 // ==UserScript==
 // @name         哔哩哔哩视频列表增强
-// @version      240711.1
+// @version      240711.2
 // @description  修改视频合集长度_直播视频大小_评论区间隔
 // @author       未完待笑(UnfiniSmile)
 // @copyright    2024, UnfiniSmile (https://github.com/UnfiniSmile)
@@ -36,13 +36,19 @@
     //针对7-10晚上b站更新写的代码，修改评论区间隔
     function modifyElements() {
         try {
-            let root1 = document.querySelector("#comment > div > bili-comments").shadowRoot;
-            let threadRenderers = root1.querySelectorAll("#feed > bili-comment-thread-renderer");
+            let root1 = document.querySelector("#comment > div > bili-comments");
+            if (!root1 || !root1.shadowRoot) return;
+            root1 = root1.shadowRoot;
 
+            let threadRenderers = root1.querySelectorAll("#feed > bili-comment-thread-renderer");
             threadRenderers.forEach(threadRenderer => {
                 let root2 = threadRenderer.shadowRoot;
-                let root3 = root2.querySelector("#comment").shadowRoot;
+                if (!root2) return;
 
+                let root3 = root2.querySelector("#comment");
+                if (!root3 || !root3.shadowRoot) return;
+                root3 = root3.shadowRoot;
+                
                 root3.querySelectorAll("#body").forEach(body => {
                     body.style.paddingTop = '0px';
                 });//修改评论者消息间隔24-7-11
@@ -78,7 +84,7 @@
                         }//修改子评论者消息间隔24-7-11
                         let Footer2 = root5.querySelector("#footer > bili-comment-action-buttons-renderer");
                         if (Footer2) {
-                            Footer2.style.marginTop = '-6px';
+                            Footer2.style.marginTop = '-8px';
                         }//修改子评论者时间空白间隔24-7-11
                     });
                 }
@@ -91,9 +97,6 @@
     function observeMutations() {
         const observer = new MutationObserver(mutations => {
             modifyElements();
-            setTimeout(function() {
-                modifyElements();
-            },3000);//添加延迟结构改善未修改的情况
         });
 
         observer.observe(document, { childList: true, subtree: true });
@@ -111,6 +114,7 @@
         applyStyles();
         modifyElements();
         observeMutations();
+        setInterval(modifyElements, 2000);//添加定时结构改善未修改的情况24-7-11
 
         var videoSectionsContentList = document.querySelector('.base-video-sections-v1 .video-sections-content-list');
         if (videoSectionsContentList) {
