@@ -12,7 +12,7 @@
     'use strict';
 
     function applyStyles() {
-        GM_addStyle('.base-video-sections-v1 .video-sections-content-list {max-height: 450px !important; height: 450px !important; }');//24-7-14解决点击下一个视频失效的问题
+        GM_addStyle('.video-sections-content-list {max-height: 450px !important; height: 450px !important; }');//24-7-14解决点击下一个视频失效的问题
         //修改bilibili直播界面
         GM_addStyle('.live-room-app .app-content .app-body {width: auto !important;}');//24-7-9
         GM_addStyle('.live-room-app .app-content .app-body .player-and-aside-area {margin-bottom: 90px;}');//24-7-9
