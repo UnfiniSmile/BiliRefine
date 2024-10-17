@@ -1,6 +1,6 @@
 // ==UserScript==
 // @name         哔哩哔哩视频列表增强
-// @version      240905
+// @version      241017
 // @description  修改视频合集长度_直播界面_评论区间隔
 // @author       未完待笑(UnfiniSmile)
 // @copyright    2024, UnfiniSmile (https://github.com/UnfiniSmile)
