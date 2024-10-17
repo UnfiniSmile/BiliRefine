@@ -13,6 +13,7 @@
 
     function applyStyles() {
         GM_addStyle('.video-sections-content-list {max-height: 450px !important; height: 450px !important; }');//24-7-14解决点击下一个视频失效的问题
+        GM_addStyle('.video-pod .video-pod__body[data-v-f4470e68] {max-height: 450px;}');//24-10-17fix video list invalid
         //修改bilibili直播界面
         GM_addStyle('.live-room-app .app-content .app-body {width: auto !important;}');//24-7-9
         GM_addStyle('.live-room-app .app-content .app-body .player-and-aside-area {margin-bottom: 90px;}');//24-7-9
