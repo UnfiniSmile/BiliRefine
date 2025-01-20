@@ -1,6 +1,6 @@
 // ==UserScript==
 // @name         哔哩哔哩视频列表增强
-// @version      241017
+// @version      250120
 // @description  修改视频合集长度_直播界面_评论区间隔
 // @author       未完待笑(UnfiniSmile)
 // @copyright    2024, UnfiniSmile (https://github.com/UnfiniSmile)
@@ -13,11 +13,10 @@
 
     function applyStyles() {
         GM_addStyle('.video-sections-content-list {max-height: 450px !important; height: 450px !important; }');//24-7-14解决点击下一个视频失效的问题
-        GM_addStyle('.video-pod .video-pod__body[data-v-f4470e68] {max-height: 450px;}');//24-10-17fix video list invalid
+        GM_addStyle('.video-pod .video-pod__body {max-height: 450px !important;}');//25-1-20fix video list invalid
         //修改bilibili直播界面
         GM_addStyle('.live-room-app .app-content .app-body {width: auto !important;}');//24-7-9
         GM_addStyle('.live-room-app .app-content .app-body .player-and-aside-area {margin-bottom: 90px;}');//24-7-9
-        GM_addStyle('.header-info-ctnr .blur-edges-ctnr {bottom: 300px !important;}')//消除bilibili痕迹追踪24-9-5
         GM_addStyle('.header-info-ctnr .rows-ctnr .lower-row .live-area .area-link {max-width: 144px !important;}');//分区文字显示24-9-5
         //修改视频列表宽度，以及解除视频列表字符长度限制
         GM_addStyle('.video-episode-card__info-title {width: auto !important;}');//24-4-11
