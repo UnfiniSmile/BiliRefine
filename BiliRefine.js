@@ -1,6 +1,6 @@
 // ==UserScript==
 // @name         哔哩哔哩视频列表增强
-// @version      250120
+// @version      250624
 // @description  修改视频合集长度_直播界面_评论区间隔
 // @author       未完待笑(UnfiniSmile)
 // @copyright    2025, UnfiniSmile (https://github.com/UnfiniSmile)
@@ -24,7 +24,7 @@
         //专栏评论大小
         GM_addStyle(`
             .opus-detail {width: 1080px;}
-            .right-sidebar-wrap {margin-left: 1100px;}`);//25-06-24
+            .right-sidebar-wrap {margin-left: 1100px;}`);//25-06-24删除无用参数
     }//GM_addStyle('');
     window.addEventListener('load', function() {
         applyStyles();
