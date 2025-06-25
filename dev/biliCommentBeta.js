@@ -74,24 +74,31 @@
                 if (commentRenderers?.length) {
                     for (const renderer of commentRenderers) {
                         const bodyDiv = queryShadowRoots(renderer, ["#body"]);
-                        if (bodyDiv && window.getComputedStyle(bodyDiv).paddingTop !== "0px") {
+                        if (bodyDiv && bodyDiv.style.paddingTop !== "0px") {
                             bodyDiv.style.paddingTop = "0px";
 
                             const headerDiv = bodyDiv.querySelector("#header");
-                            if (headerDiv && window.getComputedStyle(headerDiv).marginBottom !== "-10px") {
+                            if (headerDiv && headerDiv.style.marginBottom !== "-10px") {
                                 headerDiv.style.marginBottom = "-10px";
                             }
 
                             const avatarLink = bodyDiv.querySelector("#user-avatar");
-                            if (avatarLink && window.getComputedStyle(avatarLink).top !== "8px") {
+                            if (avatarLink && avatarLink.style.top !== "8px") {
                                 avatarLink.style.top = "8px";
                             }
+                        }
+                        const actionButton = renderer.shadowRoot?.querySelector("bili-comment-action-buttons-renderer");
+                        if (actionButton?.shadowRoot && !actionButton.shadowRoot.querySelector("#custom-action-style")) {
+                            const style = document.createElement("style");
+                            style.id = "custom-action-style";
+                            style.textContent = `:host { margin-top: -6px !important; }`;
+                            actionButton.shadowRoot.appendChild(style);
                         }
                     }
                 }
 
                 const divElement = thread.shadowRoot?.querySelector("div#div");
-                if (divElement && window.getComputedStyle(divElement).paddingBottom !== "0px") {
+                if (divElement && divElement.style.paddingBottom !== "0px") {
                     divElement.style.paddingBottom = "0px";
                 }
 
@@ -100,8 +107,15 @@
                     const replyRenderers = repliesRenderer.shadowRoot.querySelectorAll("bili-comment-reply-renderer");
                     replyRenderers.forEach(reply => {
                         const replyBody = reply.shadowRoot?.querySelector("#body");
-                        if (replyBody && window.getComputedStyle(replyBody).padding !== "0px 0px 0px 34px") {
+                        if (replyBody && replyBody.style.padding !== "0px 0px 0px 34px") {
                             replyBody.style.padding = "0px 0px 0px 34px";
+                        }
+                        const actionButton = reply.shadowRoot?.querySelector("bili-comment-action-buttons-renderer");
+                        if (actionButton?.shadowRoot && !actionButton.shadowRoot.querySelector("#custom-action-style")) {
+                            const style = document.createElement("style");
+                            style.id = "custom-action-style";
+                            style.textContent = `:host { margin-top: -6px !important; }`;
+                            actionButton.shadowRoot.appendChild(style);
                         }
                     });
                 }
@@ -109,29 +123,7 @@
         }
     }
 
-    function actionButtons(root = document) {
-        const walkShadowDOM = (node) => {
-            if (!node) return;
-            const isActionButtons = node.tagName?.includes('ACTION-BUTTONS');
-            if (isActionButtons && node.shadowRoot) {
-                if (!node.shadowRoot.querySelector('#custom-action-style')) {
-                    const style = document.createElement('style');
-                    style.id = 'custom-action-style';
-                    style.textContent = `:host {margin-top: -6px !important;}`;
-                    node.shadowRoot.appendChild(style);
-                }
-            }
-            if (node.shadowRoot) {
-                Array.from(node.shadowRoot.children).forEach(walkShadowDOM);
-            }
-            if (node.children) {
-                Array.from(node.children).forEach(walkShadowDOM);
-            }
-        };
-        walkShadowDOM(root);
-    }
 commentStyles();
-actionButtons();
 }
 function start (){
     const commentObserver = new MutationObserver((mutations, observer) => {
