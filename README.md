@@ -26,11 +26,13 @@
 
 ## 致谢（Credits）
 
-本项目部分代码参考自：
+本项目关于评论区更新监测代码参考自：
 
 - [@gaogaotiantian/biliscope](https://github.com/gaogaotiantian/biliscope)
 
-感谢其开源贡献。原项目使用 [MIT License](https://opensource.org/licenses/MIT) 许可。
+感谢其开源贡献。
+
+原项目使用 [MIT License](https://opensource.org/licenses/MIT) 许可。
 
     function tryObserve(root) {
         if (root) {
@@ -72,7 +74,7 @@
             }
         }
     }
-
+    //see code details
 ---
 
 [![Star History Chart](https://api.star-history.com/svg?repos=UnfiniSmile/BiliRefine&type=Date)](https://star-history.com/#UnfiniSmile/BiliRefine&Date)

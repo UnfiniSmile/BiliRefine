@@ -1,6 +1,6 @@
 // ==UserScript==
 // @name         change Bilibili comments style
-// @version      250624
+// @version      250625
 // @description  change Bilibili comments style
 // @author       未完待笑(UnfiniSmile)
 // @copyright    2025, UnfiniSmile (https://github.com/UnfiniSmile)
