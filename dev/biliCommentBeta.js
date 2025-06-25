@@ -87,6 +87,10 @@
                                 avatarLink.style.top = "8px";
                             }
                         }
+                        const ornamentDiv = bodyDiv.querySelector("#ornament");
+                        if (ornamentDiv && ornamentDiv.style.top !== "-12px") {
+                            ornamentDiv.style.top = "-12px";
+                        }
                         const actionButton = renderer.shadowRoot?.querySelector("bili-comment-action-buttons-renderer");
                         if (actionButton?.shadowRoot && !actionButton.shadowRoot.querySelector("#custom-action-style")) {
                             const style = document.createElement("style");
